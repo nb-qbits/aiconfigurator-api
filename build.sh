@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+apt-get update
+apt-get install -y git-lfs
+
 pip install -r requirements.txt
 
 if [ ! -d "aiconfigurator" ]; then
@@ -13,3 +16,6 @@ git lfs pull
 cd ..
 
 pip install -e ./aiconfigurator
+
+
+
