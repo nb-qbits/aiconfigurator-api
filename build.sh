@@ -1,21 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-apt-get update
-apt-get install -y git-lfs
-
 pip install -r requirements.txt
 
-if [ ! -d "aiconfigurator" ]; then
-  git clone https://github.com/ai-dynamo/aiconfigurator.git
-fi
+git clone https://github.com/ai-dynamo/aiconfigurator.git
 
 cd aiconfigurator
-git lfs install
-git lfs pull
+
+# Skip LFS → use pointer files (works for our use-case)
 cd ..
 
 pip install -e ./aiconfigurator
-
 
 
